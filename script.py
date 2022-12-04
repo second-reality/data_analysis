@@ -2,12 +2,14 @@
 
 import matplotlib.pyplot as plt
 import sys
+import tkinter as tk
+from tkinter import filedialog
 
-if len(sys.argv) < 2:
-    print("usage: index_of_column")
-    exit(1)
+root = tk.Tk()
+root.withdraw()
 
-which_column=int(sys.argv[1])
+which_file=filedialog.askopenfilename()
+which_column=tk.simpledialog.askinteger(title="", prompt='Which column do you want (starts at 1)')
 
 our_element=[]
 
