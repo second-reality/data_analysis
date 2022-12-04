@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
-print("hello")
+import matplotlib.pyplot as plt
 
-def read_line(line):
+our_element=[]
+
+def read_line(line, our_element):
     line = line.strip()
     if not line:
         return
@@ -12,11 +14,18 @@ def read_line(line):
         return
 
     line = line.replace(' ', '')
+    line = line.replace(',', '.')
     columns = line.split(";")
 
-    print(columns)
+    wavelength = columns[0]
+    magic_element = float(columns[1])
+    our_element.append(magic_element)
 
 
 data = open("in.txt", "r")
 for line in data:
-    read_line(line)
+    read_line(line, our_element)
+
+plt.plot(our_element)
+plt.ylabel('spectra')
+plt.show()
