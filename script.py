@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 
 import matplotlib.pyplot as plt
+import sys
+
+if len(sys.argv) < 2:
+    print("usage: index_of_column")
+    exit(1)
+
+which_column=int(sys.argv[1])
 
 our_element=[]
 
@@ -18,7 +25,7 @@ def read_line(line, our_element):
     columns = line.split(";")
 
     wavelength = columns[0]
-    magic_element = float(columns[1])
+    magic_element = float(columns[which_column])
     our_element.append(magic_element)
 
 
